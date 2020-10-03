@@ -2,9 +2,9 @@ import * as generalTranslations from "./translations/en";
 
 export const chartStyles = {
   wrapperStyle: {
-    display: "flex",
+    display: "block",
     flexWrap: "wrap",
-    padding: "20px"
+    padding: "0px",
   }
 };
 
@@ -49,6 +49,7 @@ export const emptySingleChannelData = {
 
 
 export const generalOptions = {
+  maintainAspectRatio: false,
   scales: {
     xAxes: [
       {

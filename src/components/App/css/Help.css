@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+.main-box {
+    margin-left:10%;
+    margin-top:5%
+}
+
+.problem-box {
+    margin-top:5vh
+}
+
+.header-title {
+    font-size:20px;
+    font-weight:bold
+}
+
+.points-wrapper {
+    margin-left:30px;
+    margin-top:10px
+}
+
+.points-sub {
+    width:70%;
+    margin-top:15px
+}
+.sub-header {
+    font-weight:bold;
+    font-size:18px
+}
+
+.sub-desc {
+    font-size:16px;
+    margin-top:5px
+}
+
+
+
+h1 {
+    font-size:60px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+}
+
+h2 {
+    font-size:40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:700;
+    color:#1F2E4F;
+}
+
+p {
+    font-size:18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:100;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: right;
+}

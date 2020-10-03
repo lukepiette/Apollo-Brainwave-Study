@@ -33,7 +33,8 @@ const ssvep = translations.types.ssvep;
 const evoked = translations.types.evoked;
 const predict = translations.types.predict;
 
-export function PageSwitcher() {
+
+function PageSwitcher() {
 
   // For auxEnable settings
   const [checked, setChecked] = useState(false);
@@ -446,3 +447,5 @@ export function PageSwitcher() {
     </React.Fragment>
   );
 }
+
+export default PageSwitcher

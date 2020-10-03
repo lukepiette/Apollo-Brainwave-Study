@@ -1,9 +1,9 @@
 {
-  "connect": "Connect Muse Headband",
+  "connect": "Connect Muse",
   "connectMock": "Connect Mock Data",
-  "connecting": "Connecting to Muse",
+  "connecting": "Connecting...",
   "connectingMock": "Connecting to Mock Data",
-  "connected": "Muse Headband Connected",
+  "connected": "Connected",
   "connectedMock": "Mock Data Connected",
   "connectionFailed": "Connection failed",
   "disconnect": "Disconnect",

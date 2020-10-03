@@ -20,10 +20,8 @@ import * as specificTranslations from "./translations/en";
 import { generateXTics, standardDeviation } from "../../utils/chartUtils";
 
 import moment from 'moment';
-
-
-
 import firebase from "../../../App/Firebase.js";
+
 
 const rootRef = firebase.database().ref().child('accounts');
 
@@ -32,7 +30,7 @@ var DATA_AF7 = [];
 var DATA_AF8 = [];
 var DATA_TP10 = [];
 
-var MAX_COUNT = 21*10;
+var MAX_COUNT = 21*1;
 var COUNT = 0;
 
 export function getSettings () {
@@ -110,7 +108,7 @@ function formatSeconds(sec){
 }
 
 
-export function setup(setData, Settings, UUID) {
+export function setup(setData, Settings, UUID, onOff) {
   console.log("Subscribing to " + Settings.name);
 
   if (window.multicastIntro$) {
@@ -139,6 +137,7 @@ export function setup(setData, Settings, UUID) {
         var minute = moment().format('mm');
         var seconds = formatSeconds(moment().format('ss'));
 
+
         var hourFormatted = {};
         hourFormatted[hour] = formatted;
         dateFormatted[date] = hourFormatted;
@@ -158,18 +157,19 @@ export function setup(setData, Settings, UUID) {
         electrodesFormatted['AF8'] = AV_AF8;
 
         var secondsFormatted = {};
+        var secondsMeditate = {};
         secondsFormatted[seconds] = electrodesFormatted;
+        secondsMeditate[moment().format('s')] = electrodesFormatted
 
-        console.log(seconds);
 
         try{
           rootRef.child(UUID).child('data').update(dateFormatted);
           rootRef.child(UUID).child('history').child(date).child(hour).child(minute).update(secondsFormatted);
+          rootRef.child(UUID).child('meditate').child(onOff).child(date).child(hour).child(minute).update(secondsMeditate);
+          console.log("Data successfuly pushed.")
         }
         catch {console.log('missing values... could not push')}
 
-
-        console.log("Data successfuly pushed.")
 
         DATA_TP9 = [];
         DATA_AF7 = [];

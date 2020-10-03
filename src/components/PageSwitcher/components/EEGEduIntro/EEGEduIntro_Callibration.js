@@ -20,10 +20,8 @@ import * as specificTranslations from "./translations/en";
 import { generateXTics, standardDeviation } from "../../utils/chartUtils";
 
 import moment from 'moment';
-
-
-
 import firebase from "../../../App/Firebase.js";
+
 
 const rootRef = firebase.database().ref().child('accounts');
 
@@ -32,7 +30,7 @@ var DATA_AF7 = [];
 var DATA_AF8 = [];
 var DATA_TP10 = [];
 
-var MAX_COUNT = 21*10;
+var MAX_COUNT = 21*1;
 var COUNT = 0;
 
 export function getSettings () {
@@ -134,40 +132,10 @@ export function setup(setData, Settings, UUID) {
           "TP10":DATA_TP10
         }
 
-        var date = moment().format('YYYY-MM-DD');
-        var hour = moment().format('H');
-        var minute = moment().format('mm');
-        var seconds = formatSeconds(moment().format('ss'));
-
-        var hourFormatted = {};
-        hourFormatted[hour] = formatted;
-        dateFormatted[date] = hourFormatted;
-
-        //////////////////////////////////////
-
-        var AV_TP9 = avData(DATA_TP9);
-        var AV_TP10 = avData(DATA_TP10);
-        var AV_AF7 = avData(DATA_AF7);
-        var AV_AF8 = avData(DATA_AF8);
-
-        
-        var electrodesFormatted = {};
-        electrodesFormatted['TP9'] = AV_TP9;
-        electrodesFormatted['TP10'] = AV_TP10;
-        electrodesFormatted['AF7'] = AV_AF7;
-        electrodesFormatted['AF8'] = AV_AF8;
-
-        var secondsFormatted = {};
-        secondsFormatted[seconds] = electrodesFormatted;
-
-        console.log(seconds);
-
         try{
-          rootRef.child(UUID).child('data').update(dateFormatted);
-          rootRef.child(UUID).child('history').child(date).child(hour).child(minute).update(secondsFormatted);
+          rootRef.child(UUID).child('callibration').child('data').update(formatted);
         }
         catch {console.log('missing values... could not push')}
-
 
         console.log("Data successfuly pushed.")
 
